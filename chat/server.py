@@ -1,10 +1,15 @@
 #!/usr/bin/python
 
+# Simple multi-person chat server
+#
+# Grant Cohoe
+# Camp Fitch Computer Camp 2013
+
 # Load modules
 import socket,select,sys
 
 # Set the host and port that we are binding to
-host = "127.0.0.1"
+host = "0.0.0.0"
 port = 31337
 
 # Create the socket object and give it certain parameters 
@@ -43,7 +48,7 @@ while True:
 			# Get the line from the server window
 			stuff = sys.stdin.readline()
 			# Get rid of the EOL character
-			stuff.rstrip("\n")
+			stuff.rstrip()
 			# Exit the server if "exit" appears
 			if stuff == "exit":
 				break
@@ -59,19 +64,22 @@ while True:
 					except:
 						# Something bad happened
 						print "ERROR-STDIN: "+stuff
+			# Prevent message duplication
 			prev_msg = stuff
 		# Message from a client to everyone else
 		else:
 			# Get the data from the socket
 			data = sock.recv(1024)
 			# Remove the EOL character
-			data.rstrip("\n")
+			data.rstrip()
 			# If there is actually data
 			if data:
 				# The client would like to exit
 				if data == "exit":
 					# Cleanly close the socket
+					print "Closing connection"
 					sock.close()
+					# Remove it from the list of connections
 					input_sockets.remove(sock)
 					break
 				else:
@@ -98,8 +106,8 @@ while True:
 					prev_msg = data
 			# No data. Terminate the connection.
 			else:
+				# Close the socket
+				print "Closing connection"
 				sock.close()
+				# Remove it from the list of connections
 				input_sockets.remove(sock)
-conn.close()
-s.close()
-
