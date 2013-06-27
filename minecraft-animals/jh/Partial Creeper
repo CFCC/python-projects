@@ -1,0 +1,1000 @@
+>>> right(90)
+>>> left(180)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> right(90)
+>>> forward(50)
+>>> left(90)
+>>> forward(50)
+>>> left(90)
+>>> forward(50)
+>>> backward(25)
+>>> left(90)
+>>> forward(25)
+>>> left(180)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> forward(50)
+>>> left(90)
+>>> forward(300)
+>>> left(90)
+>>> forward(100)
+>>> left(90)
+>>> forward(100)
+>>> left(90)
+>>> forward(100)
+>>> backward(50)
+>>> left(90)
+>>> forward(50)
+>>> right(90)
+>>> for i in range(200):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> forward(300)
+>>> left(90)
+>>> forward(100)
+>>> left(90)
+>>> forward(100)
+>>> left(90)
+>>> forward(100)
+>>> backward(50)
+>>> left9
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'left9' is not defined
+>>> left(90)
+>>> forward(50)
+>>> for i in range(200):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> backward(50)
+>>> left(90)
+>>> pencolor("dark green")
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> backward(25)
+>>> right(90)
+>>> forward(25)
+>>> left(90)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> forward(25)
+>>> left(90)
+>>> forward(25)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> forward(50)
+>>> left(90)
+>>> forward(50)
+>>> right(90)
+>>> pencolor("lime green")
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> backward(25)
+>>> right(90)
+>>> forward(25)
+>>> left(90)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> left(90)
+>>> forward(25)
+>>> right
+<function right at 0xb6a22e30>
+>>> right(90)
+>>> forward(25)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> left(180)
+>>> pencolor("pale green")
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> backward(25)
+>>> right(90)
+>>> forward(25)
+>>> left(90)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> forward(25)
+>>> right(90)
+>>> pencolor("chartruese")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<string>", line 1, in pencolor
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2166, in pencolor
+    color = self._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2600, in _colorstr
+    return self.screen._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 1105, in _colorstr
+    raise TurtleGraphicsError("bad color string: %s" % str(color))
+turtle.TurtleGraphicsError: bad color string: chartruese
+>>> pencolor("chartreuse")
+>>> pencolor("green")
+>>> pencolor("deep green")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<string>", line 1, in pencolor
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2166, in pencolor
+    color = self._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2600, in _colorstr
+    return self.screen._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 1105, in _colorstr
+    raise TurtleGraphicsError("bad color string: %s" % str(color))
+turtle.TurtleGraphicsError: bad color string: deep green
+>>> pencolor("normal green")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<string>", line 1, in pencolor
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2166, in pencolor
+    color = self._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2600, in _colorstr
+    return self.screen._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 1105, in _colorstr
+    raise TurtleGraphicsError("bad color string: %s" % str(color))
+turtle.TurtleGraphicsError: bad color string: normal green
+>>> pencolor("true green")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<string>", line 1, in pencolor
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2166, in pencolor
+    color = self._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2600, in _colorstr
+    return self.screen._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 1105, in _colorstr
+    raise TurtleGraphicsError("bad color string: %s" % str(color))
+turtle.TurtleGraphicsError: bad color string: true green
+>>> pencolor("asparagus green")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<string>", line 1, in pencolor
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2166, in pencolor
+    color = self._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2600, in _colorstr
+    return self.screen._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 1105, in _colorstr
+    raise TurtleGraphicsError("bad color string: %s" % str(color))
+turtle.TurtleGraphicsError: bad color string: asparagus green
+>>> pencolor("moss green")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<string>", line 1, in pencolor
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2166, in pencolor
+    color = self._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2600, in _colorstr
+    return self.screen._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 1105, in _colorstr
+    raise TurtleGraphicsError("bad color string: %s" % str(color))
+turtle.TurtleGraphicsError: bad color string: moss green
+>>> pencolor((0, 171, 52))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<string>", line 1, in pencolor
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2166, in pencolor
+    color = self._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2600, in _colorstr
+    return self.screen._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 1113, in _colorstr
+    raise TurtleGraphicsError("bad color sequence: %s" % str(color))
+turtle.TurtleGraphicsError: bad color sequence: (0, 171, 52)
+>>> pencolor(0, 171, 52)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<string>", line 1, in pencolor
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2166, in pencolor
+    color = self._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2600, in _colorstr
+    return self.screen._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 1113, in _colorstr
+    raise TurtleGraphicsError("bad color sequence: %s" % str(color))
+turtle.TurtleGraphicsError: bad color sequence: (0, 171, 52)
+>>> pencolor(1, 171, 52)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<string>", line 1, in pencolor
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2166, in pencolor
+    color = self._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2600, in _colorstr
+    return self.screen._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 1113, in _colorstr
+    raise TurtleGraphicsError("bad color sequence: %s" % str(color))
+turtle.TurtleGraphicsError: bad color sequence: (1, 171, 52)
+>>> pencolor((1, 171, 52))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<string>", line 1, in pencolor
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2166, in pencolor
+    color = self._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2600, in _colorstr
+    return self.screen._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 1113, in _colorstr
+    raise TurtleGraphicsError("bad color sequence: %s" % str(color))
+turtle.TurtleGraphicsError: bad color sequence: (1, 171, 52)
+>>> pencolor((69, 151, 43))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<string>", line 1, in pencolor
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2166, in pencolor
+    color = self._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2600, in _colorstr
+    return self.screen._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 1113, in _colorstr
+    raise TurtleGraphicsError("bad color sequence: %s" % str(color))
+turtle.TurtleGraphicsError: bad color sequence: (69, 151, 43)
+>>> pencolor(69, 151, 43)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<string>", line 1, in pencolor
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2166, in pencolor
+    color = self._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2600, in _colorstr
+    return self.screen._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 1113, in _colorstr
+    raise TurtleGraphicsError("bad color sequence: %s" % str(color))
+turtle.TurtleGraphicsError: bad color sequence: (69, 151, 43)
+>>> pencolor(84, 164, 56
+... )
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<string>", line 1, in pencolor
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2166, in pencolor
+    color = self._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2600, in _colorstr
+    return self.screen._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 1113, in _colorstr
+    raise TurtleGraphicsError("bad color sequence: %s" % str(color))
+turtle.TurtleGraphicsError: bad color sequence: (84, 164, 56)
+>>> screen.colormode()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'screen' is not defined
+>>> colormode()
+1.0
+>>> colormode(255)
+>>> pencolor(69, 151, 43)
+>>> forward(25)
+>>> left(90)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> penup()
+>>> right(90)
+>>> forward(50)
+>>> left(90)
+>>> right(180)
+>>> forward(50)
+>>> left(90
+... )
+>>> left(180)
+>>> pencolor(103, 225, 78)
+>>> forward(50)
+>>> backward(50)
+>>> pendown()
+>>> forward(50)
+>>> backward(25)
+>>> right(90)
+>>> forward(25)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> penup()
+>>> pencolor(185, 202, 181)
+>>> forward(200)
+>>> left(90)
+>>> pendown()
+>>> forward(50)
+>>> backward(25)
+>>> left(90)
+>>> forward(25)
+>>> left(180)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> penup()
+>>> pencolor(103, 225, 78)
+>>> forward(50)
+>>> pendown()
+>>> forward(50)
+>>> left(90)
+>>> forward(50)
+>>> backward(25)
+>>> right(90)
+>>> backward(25)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> forward(50)
+>>> pencolor(88, 190, 43)
+>>> forward(50)
+>>> left(90)
+>>> forward(50)
+>>> left(90)
+>>> forward(50)
+>>> backward(25)
+>>> left(90)
+>>> forward(25)(
+... 
+... )
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'NoneType' object is not callable
+>>> left(90)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> right(90)
+>>> pencolor(161, 194, 155)
+>>> forward(50)
+>>> right(90)
+>>> left(180)
+>>> forward(50)
+>>> left(90)
+>>> forward(50)
+>>> backward(25)
+>>> left(90)
+>>> forward(25)
+>>> left(180)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> left(180)
+>>> pencolor(79, 117, 83)
+>>> forward(50)
+>>> backward(25)
+>>> right(90)
+>>> forward(25)
+>>> right(90)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> forward(50)
+>>> right(90)
+>>> pencolor(144, 239, 141)
+>>> pencolor(119, 246, 157)
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> backward(25)
+>>> right(90)
+>>> forward(25)
+>>> right(90)
+>>> for i in range(100)
+  File "<stdin>", line 1
+    for i in range(100)
+                      ^
+SyntaxError: invalid syntax
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> forward(50)
+>>> pencolor(0, 153, 68
+... )
+>>> forward(50)
+>>> left(90)
+>>> forward(50)
+>>> backward(25)
+>>> left(90)
+>>> forward(25)
+>>> left(180)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> forward(50)
+>>> right(90)
+>>> pencolor(0, 213, 81)
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> backward(25)
+>>> right(90)
+>>> forward(25)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> left(180)
+>>> pencolor(0, 206, 49)
+>>> forward(50)
+>>> backward(25)
+>>> right(90)
+>>> forward(25)
+>>> right(90)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> penup()
+>>> left(180)
+>>> forward(50)
+>>> pencolor(182, 230, 186)
+>>> pendown()
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> backward(25)
+>>> right(90)
+>>> forward(25)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> left(90)
+>>> forward(50)
+>>> right(90)
+]>>> forward(50)
+>>> backward(50)
+>>> right(90)
+>>> forward(50)
+>>> right(90)
+>>> pencolor(61, 232, 136)
+>>> forward(50)
+>>> backward(25)
+>>> right(90)
+>>> forward(25)
+>>> right(90)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> left(180)
+>>> penup()
+>>> forward(50)
+>>> pencolor(149, 208, 157)
+>>> pendown()
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> backward(25)
+>>> right(90)
+>>> forward(25)
+>>> left(90)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> pencolor(0, 171, 52)
+>>> backward(50)
+>>> left(90)
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> backward(25)
+>>> right(90)
+>>> forward(25)
+>>> left(90)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> left(90)
+>>> penup()
+>>> forward(100)
+>>> right(90)
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> right(180)
+>>> pencolor(40, 164, 91)
+>>> pendown()
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> backward(25)
+>>> right(90)
+>>> forwrd(25)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'forwrd' is not defined
+>>> forward(25)
+>>> left(90)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> left(90)
+>>> forward(50)
+>>> left(90)
+>>> pencolor(182, 230, 186)
+>>> forward(50)
+>>> left(90)
+>>> forward(50)
+>>> backward(25)
+>>> left(90)
+>>> forward(25)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> left(90)
+>>> forward(50)
+>>> pencolor(116, 198, 148)
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> backward(25)
+>>> left(90)
+>>> backward(25)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> forward(50)
+>>> left(90)
+>>> forward(50)
+>>> right(90)]
+  File "<stdin>", line 1
+    right(90)]
+             ^
+SyntaxError: invalid syntax
+>>> right(90)
+>>> pencolor(0, 153, 68)
+>>> forward(50)
+>>> backward(25)
+>>> right(90)
+>>> forward(25)
+>>> left(90)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> forward(50)
+>>> backward(50)
+>>> left(90)
+>>> forward(50)
+>>> pencolor(0, 206, 49)
+>>> forward(50)
+>>> backward(50)
+>>> forward(25)
+>>> right(90)
+>>> forward(25)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> penup()
+>>> backward(50)
+>>> left(90)
+>>> pencolor(0, 239, 79)
+>>> forward(50)
+>>> backward(50)
+>>> pendown()
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> backward(25)
+>>> right(90)
+>>> forward(25)
+>>> left(90)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> left(90)
+>>> forward(50)
+>>> pencolor(0, 195, 0)
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> backward(25)
+>>> right(90)
+>>> forward(25)
+>>> left(90)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> left(90)
+>>> forward(50)
+>>> pencolor(0, 206, 49)
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> backward(25)
+>>> right(90)
+>>> forward(25)
+>>> left(90)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> penup()
+>>> forward(350)
+>>> pencolor(0, 239, 79)
+>>> forward(50)
+>>> backward(50)
+>>> pendown()
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> backward(25)
+>>> left(90)
+>>> backward(25)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> forward(50)
+>>> left(90)
+>>> forward(50)
+>>> pencolor(220, 220, 220)
+>>> forward(50)
+>>> left(90)
+>>> forward(50)
+>>> backward(25)
+>>> left(90)
+>>> forward(25)
+>>> left(90)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> penup()
+>>> left(90)
+>>> forward(50)
+>>> pencolor(210, 210, 210)
+>>> forward(50)
+>>> backward(50)
+>>> pendown()
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> backward(25)
+>>> right(90)
+>>> left(180)
+>>> backward(25)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> left(9)
+>>> left(81)
+>>> forward(50)
+>>> left(90)
+>>> pencolor(0, 120, 7)
+>>> forward(50)
+>>> left(90)
+>>> forward(50)
+>>> backward(25)
+>>> left(90)
+>>> forward(25)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> left(90)
+>>> forward(50)
+>>> pencolor(149, 208, 157)
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> backward(25)
+>>> right(90)
+>>> left(180)
+>>> backward(25)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> forward(50)
+>>> left(90)
+>>> forward(50)
+>>> right(90)
+>>> pencolor(0, 153, 68)
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> backward(25)
+>>> left(90)
+>>> backward(25)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> penup()
+>>> backward(350)
+>>> right(90)
+>>> forward(50)
+>>> left(180)
+>>> pencolor(0, 153, 68)
+>>> forward(50)
+>>> backward(50)
+>>> pendw
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'pendw' is not defined
+>>> pendown()
+>>> forward(50)
+>>> right(50)
+>>> right(40)
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> backward(25)
+>>> left(90)
+>>> backward(25)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> left(90)
+>>> forward(50)
+>>> pencolor(149, 208, 157)
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> backward(25)
+>>> left(90)
+>>> backward(25)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> forward(50)
+>>> pencolor(0, 25
+... 
+... 
+... )
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<string>", line 1, in pencolor
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2166, in pencolor
+    color = self._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 2600, in _colorstr
+    return self.screen._colorstr(args)
+  File "/usr/lib/python2.7/lib-tk/turtle.py", line 1109, in _colorstr
+    raise TurtleGraphicsError("bad color arguments: %s" % str(color))
+turtle.TurtleGraphicsError: bad color arguments: (0, 25)
+>>> pencolor(0, 205, 49)
+>>> forward(50)
+>>> left(90)
+>>> forward(50)
+>>> left(90)
+>>> forward(50)
+>>> backward(25)
+>>> left(90)
+>>> forward(25)
+>>> left(90)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> forward(50)
+>>> right(90)
+>>> pencolor(80, 138, 102)
+>>> forward(50)
+>>> backward(25)
+>>> left(90)
+>>> backward(25)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> forward(50)
+>>> left(90)
+>>> forward(50)
+>>> right(90)
+>>> pencolor(0, 154, 0)
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> backward(25)
+>>> left(90)
+>>> backware(25)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'backware' is not defined
+>>> backward(25)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> forward(50)
+>>> left(90)
+>>> forward(50)
+>>> pencolor(93, 208, 129)
+>>> forward(50)
+>>> left(90)
+>>> forward(50)
+>>> backward(25)
+>>> left(90)
+>>> forward(25)
+>>> left(90)
+>>> for i in range(100)
+  File "<stdin>", line 1
+    for i in range(100)
+                      ^
+SyntaxError: invalid syntax
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> forward(50)
+>>> penup()
+>>> forward(100)
+>>> right(90)
+>>> forward(50)
+>>> left(180)
+>>> pencolor(0, 229, 90)
+>>> forward(50)
+>>> backward(50)
+>>> pendown()
+>>> forward(50)
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> backward(50)
+>>> right(90)
+>>> forward(50)
+>>> left(90)
+>>> forward(50)
+>>> backward(25)
+>>> right(90)
+>>> forward(25)
+>>> left(90)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> left(90)
+>>> forward(75)
+>>> right(90)
+>>> forward(25)
+>>> for i in range(100):
+... 
+  File "<stdin>", line 2
+    
+    ^
+IndentationError: expected an indented block
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> left(180)
+>>> pencolor(26, 132, 67)
+>>> forward(50)
+>>> left(90)
+>>> forward(50)
+>>> backward(25)
+>>> left(90)
+>>> forward(25)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> forward(25)
+>>> forward(25)
+>>> backward(25)
+>>> left(90)
+>>> forward(25)
+>>> right(90)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> left(90)
+>>> forward(50)
+>>> pencolor(0, 235, 93)
+>>> forward(50)
+>>> right(90)
+>>> forward(50)
+>>> backwrd(25)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'backwrd' is not defined
+>>> backward(25)
+>>> right(90)
+>>> forward(25)
+>>> left(90)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> left(90)
+>>> forward(25)
+>>> right(90)
+>>> forward(25)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> left(90)
+>>> forward(50)
+>>> left(90)
+>>> pencolor(116, 198, 148)
+>>> forward(50)
+>>> left(90)
+>>> penup()
+>>> forward(50)
+>>> left(90)
+>>> pendown()
+>>> forward(50)
+>>> penup()
+>>> left(90)
+>>> forward(25)
+>>> right(90)
+>>> backward(25)
+>>> pendown()
+>>> for i in range(100)
+  File "<stdin>", line 1
+    for i in range(100)
+                      ^
+SyntaxError: invalid syntax
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> forward(25)
+>>> right()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: right() takes exactly 1 argument (0 given)
+>>> right(90)
+>>> pencolor(0, 206, 49)
+>>> forward(25)
+>>> left(90)
+>>> for i in range(100):
+...     forward(.5*i)
+...     left(90)
+... 
+>>> goto(a,b)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'a' is not defined
+>>> goto(0,0)
+>>> pencolor(0, 171, 52)
+>>> goto(-25, 50)
+>>> pencolor(69, 151, 43)
+>>> goto(0,0)
+>>> penup()
+>>> goto(-50, 100
+... )
+>>> pencolor(149, 208, 157)
+>>> goto(-25, 50)
+>>> pendown()
+>>> goto(-50, 100)
+>>> pencolor("pale green")
+>>> goto(-25, 50)
+>>> penup()
+>>> goto(0, -50)
+>>> pencolor("black")
+>>> 
