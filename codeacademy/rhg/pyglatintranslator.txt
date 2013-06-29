@@ -1,0 +1,14 @@
+pyg = 'ay'
+
+original = raw_input('Please type a word to give me.')
+if len(original) > 0 and original.isalpha():
+    word = original.lower()
+    first = word[0]
+    if first == "a" or first =="i" or first =="o" or first == "e" or first =="u":
+        new_word = word + pyg
+        print new_word
+    else:
+        new_word = word[1:] + first + pyg
+        print new_word
+else:
+    print 'Empty'
