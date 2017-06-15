@@ -1,5 +1,11 @@
 import socket
 import pygame
+
+
+
+
+
+
 import pickle
 version = "1.0"
 pygame.init()
