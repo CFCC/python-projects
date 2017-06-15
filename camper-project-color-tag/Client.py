@@ -1,29 +1,27 @@
 import socket
-import pygame
 
+VersionF = open("ClientVersion.txt")
+Version = VersionF.read()
+VersionF.close()
 
+print(Version)
+s = socket.socket()
 
+Vf = True
 
+while Vf:
+    try:
+        s.connect(("10.0.0.51", 10001))
+        s.send(Version.encode())
+        data = s.recv(1024)
+        if data.decode() != "1":
+            game = open("MainGame.py", "w")
+            game.write(data)
+            game.close()
+        Vf = False
+    except:
+        Vf = True
 
+from MainGame import *
 
-import pickle
-version = "1.0"
-pygame.init()
-WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
-size = (1000, 800)
-screen = pygame.display.set_mode(size)
-pygame.display.set_caption("Color Tag")
-done = False
-clock = pygame.time.Clock()
-while not done:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            done = True
-
-    screen.fill(WHITE)
-
-    pygame.display.flip()
-
-    clock.tick(60)
-pygame.quit()
+Game()
