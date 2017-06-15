@@ -7,4 +7,3 @@ def Game():
     VersionF = open("ClientVersion.txt", "w")
     VersionF.write(Version)
     VersionF.close()
-    
