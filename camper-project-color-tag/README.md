@@ -1,1 +1,1 @@
-Camper ganerated game that demonstrates knowledge of scokets, threads, and the PyGame library.
+Camper ganerated game that demonstrates knowledge of sockets, threads, and the PyGame library.
