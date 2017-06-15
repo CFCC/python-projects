@@ -1,4 +1,3 @@
-client.py
 # Import the nessary libraries
 import socket
 import string
@@ -48,3 +47,4 @@ while 1:
             s.send(msg)
             sys.stdout.write(">")
             sys.stdout.flush()
+
