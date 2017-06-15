@@ -8,6 +8,8 @@ def Game():
     VersionF.write(Version)
     VersionF.close()
 
+    print("hello world")
+
     pygame.init()
     WHITE = (255, 255, 255)
     BLACK = (0, 0, 0)
