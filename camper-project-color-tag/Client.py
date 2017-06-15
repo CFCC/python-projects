@@ -2,7 +2,8 @@ import socket
 import pickle
 
 VersionF = open("ClientVersion.txt")
-Version = pickle.dumps([VersionF.read(),"Client"])
+Version = VersionF.read()
+Version = pickle.dumps([Version, "Client"])
 VersionF.close()
 
 s = socket.socket()
@@ -12,7 +13,7 @@ Vf = True
 while Vf:
     try:
         s.connect(("10.0.0.51", 10001))
-        s.send(Version.encode())
+        s.send(Version)
         data = s.recv(1024)
         if data.decode() != "1":
             game = open("MainGame.py", "w")

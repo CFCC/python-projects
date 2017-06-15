@@ -23,7 +23,8 @@ while not done:
 
         else:
             try:
-                data = pickle.load(sock.recv(1024).decode())
+                data = pickle.loads(sock.recv(1024))
+                print(data)
                 if data[0] == CVersion:
                     sock.send("1".encode())
                     print("correct version")
