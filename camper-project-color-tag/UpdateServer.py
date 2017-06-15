@@ -1,6 +1,6 @@
 import socket
-import _thread
 import select
+import pickle
 
 CVersion = "1.0"
 
@@ -23,15 +23,21 @@ while not done:
 
         else:
             try:
-                data = sock.recv(1024)
-                if data.decode() == CVersion:
+                data = pickle.load(sock.recv(1024).decode())
+                if data[0] == CVersion:
                     sock.send("1".encode())
                     print("correct version")
                 else:
-                    Game = open("MainGame.py")
-                    GameC = Game.read()
-                    Game.close()
-                    sock.send(GameC.encode())
+                    if data[1] == "Client":
+                        Game = open("MainGame.py")
+                        GameC = Game.read()
+                        Game.close()
+                        sock.send(GameC.encode())
+                    else:
+                        Server = open("MainServer.py")
+                        ServerC = Server.read()
+                        Server.close()
+                        sock.send(ServerC.encode())
 
                 sock.close()
                 Sockets.remove(sock)
