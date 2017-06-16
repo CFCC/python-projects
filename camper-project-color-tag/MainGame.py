@@ -89,7 +89,7 @@ def Game():
             collideList = pygame.sprite.spritecollide(self, players, False)
             for x in collideList:
                 if x.shield == 0 and self.shield == 0:
-                    if x.team < self.team or (x.team == 2 and self.team == 0):
+                    if self.team - x.team == 1 or (x.team == 2 and self.team == 0):
                         Information[0][2] = x.id
                         print("collided with", x.name, self.team, x.team)
 
