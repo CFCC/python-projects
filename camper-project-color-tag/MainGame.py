@@ -1,6 +1,23 @@
 def Game():
 
     import pygame
+    import _thread
+    import pickle
+
+    def ServerC(s):
+        global Information
+        dis = False
+        while not done or not dis:
+            try:
+                Information[1] = pickle.loads(s.recv(1024))
+                s.send(pickle.dumps(Information[0]))
+            except:
+                dis = True
+                Information = "disconnected"
+
+
+    Information = [[], []]
+    global Information
 
     Version = "1.0"
 
@@ -28,6 +45,7 @@ def Game():
     screen = pygame.display.set_mode(size)
     pygame.display.set_caption("Color Tag")
     done = False
+    global done
     clock = pygame.time.Clock()
     while not done:
         for event in pygame.event.get():
