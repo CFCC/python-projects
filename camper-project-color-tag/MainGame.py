@@ -130,8 +130,8 @@ def Game():
                     players.remove(playersL[0])
                     playersL.remove(playersL[0])
 
-        except Exception as e:
-            print(e)
+        except:
+            None
 
         for z in range(len(playersL)):
             playersL[z].rect.x = Information[1][1][z][2]
