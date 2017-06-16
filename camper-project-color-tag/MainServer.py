@@ -64,12 +64,13 @@ def Server():
                 if Information[x[0]] != [None, None] and Information[x[0]] != ["disconnected", "disconnected"]:
                     print(Information)
                     info = Information[x[0]][1]
-                    if info[2] != None:
-                        if info[2] == Information[info[2]][1][2]:
-                            newTeam = x[1]+1
-                            if newTeam > 2:
-                                newTeam = 0
-                            All[info[2]][1] = newTeam
+                    if info[2][0] != None:
+                        if Information[info[2]][1][2][1] != None:
+                            if info[2][0] == Information[info[2]][1][2][1]:
+                                newTeam = x[1]+1
+                                if newTeam > 2:
+                                    newTeam = 0
+                                All[info[2][0]][1] = newTeam
 
                     sendBack = [[x[1], x[3]], []]
 
@@ -89,5 +90,5 @@ def Server():
 # send it everyone's [team, shield],[[name ,l ,x ,y ,team, shield],...]
 
 
-# recv = [x, y, who was hit]
+# recv = [x, y, [who was hit, hit]]
 # all [l, t, name, shield]

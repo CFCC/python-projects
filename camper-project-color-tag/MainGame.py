@@ -33,7 +33,7 @@ def Game():
 
 
     global Information
-    Information = [[None, None, None], []]
+    Information = [[None, None, [None, None]], []]
 
     Version = "1.0"
 
@@ -88,11 +88,14 @@ def Game():
             Information[0][1] = self.rect.y
 
             collideList = pygame.sprite.spritecollide(self, players, False)
+            Information[0][2] = [None, None]
             for x in collideList:
                 if x.shield == 0 and self.shield == 0:
                     if self.team - x.team == 1 or (x.team == 2 and self.team == 0):
-                        Information[0][2] = x.id
+                        Information[0][2][0] = x.id
                         print("collided with", x.name, self.team, x.team)
+                    else:
+                        Information[0][2][1] = x.id
 
             try:
                 self.team = Information[1][0][0]
