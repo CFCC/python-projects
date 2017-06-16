@@ -24,20 +24,25 @@ def Game():
     VersionF = open("ClientVersion.txt", "w")
     VersionF.write(Version)
     VersionF.close()
-    change_x = 0
-    change_y = 0
-    player_x = 0
-    player_y = 0
+
     class player(pygame.sprite.Sprite):
         def __init__(self, color, width, height):
             super.__init__()
             self.image=pygame.Surface([width, height])
             self.image.fill(WHITE)
-        def update(self):
-            player_x+=change_x
-            player_y+=change_y
-            pygame.draw.rect(self.image, color, [player_x, player_y, width, height])
+            self.change_x = 0
+            self.change_y = 0
+            self.rect = self.image.getRect()
 
+        def update(self):
+            self.rect.x += self.change_x
+            self.rect.y += self.change_y
+
+        def editChange_x(self, num):
+            self.change_x += num
+
+        def editChange_y(self, num):
+            self.change_y += num
     pygame.init()
     WHITE = (255, 255, 255)
     BLACK = (0, 0, 0)
@@ -47,19 +52,32 @@ def Game():
     done = False
     global done
     clock = pygame.time.Clock()
+    user = player(WHITE, 10, 10)
     while not done:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 done = True
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
-                    change_x -= 1
+                    user.editChange_x(-1)
                 if event.key == pygame.K_RIGHT:
-                    change_x += 1
+                    user.editChange_x(1)
                 if event.key == pygame.K_UP:
+                    user.editChange_y(-1)
+                if event.key == pygame.K_DOWN:
+                    user.editChange_y(1)
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT:
+                    user.editChange_x(1)
+                if event.key == pygame.K_RIGHT:
+                    user.editChange_x(-1)
+                if event.key == pygame.K_UP:
+                    change_y += 1
+                if event.key == pygame.K_DOWN:
                     change_y -= 1
-        screen.fill(WHITE)
+        screen.fill(BLACK)
 
         pygame.display.flip()
 
         clock.tick()
+    pygame.quit()
