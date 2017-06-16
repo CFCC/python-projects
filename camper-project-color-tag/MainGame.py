@@ -27,12 +27,12 @@ def Game():
 
     class player(pygame.sprite.Sprite):
         def __init__(self, color, width, height, team):
-            super.__init__()
+            super().__init__()
             self.image=pygame.Surface([width, height])
             self.image.fill(WHITE)
             self.change_x = 0
             self.change_y = 0
-            self.rect = self.image.getRect()
+            self.rect = self.image.get_rect()
             self.team = team
 
         def update(self):
