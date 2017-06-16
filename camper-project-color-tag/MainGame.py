@@ -86,7 +86,7 @@ def Game():
             Information[0][0] = self.rect.x
             Information[0][1] = self.rect.y
 
-            collideList = pygame.sprite.spritecollide(self, players)
+            collideList = pygame.sprite.spritecollide(self, players, False)
             for x in collideList:
                 if x.shield == 0 and self.shield == 0:
                     if x.team < self.team or (x.team == 3 and self.team == 1):
@@ -178,8 +178,7 @@ def Game():
                     user.editChange_y(1)
                 if event.key == pygame.K_DOWN:
                     user.editChange_y(-1)
-        screen.fill(BLACK)
-
+        screen.fill(WHITE)
         player.update()
         player.draw(screen)
         players.update()
