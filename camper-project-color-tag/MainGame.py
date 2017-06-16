@@ -15,7 +15,6 @@ def Game():
                 dis = True
                 Information = "disconnected"
 
-
     Information = [[], []]
     global Information
 
