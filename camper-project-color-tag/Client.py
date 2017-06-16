@@ -43,4 +43,5 @@ while Vf:
 from MainGame import *
 
 if update == "Y":
+    print("Client Starting")
     Game()

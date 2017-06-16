@@ -34,9 +34,11 @@ while Vf:
                     waiting = False
                 else:
                     update = input("That was not an option. Please choose a (Y/N): ")
+        Vf = False
     except:
         Vf = True
 
 from MainServer import *
 if update == "Y":
+    print("Starting Server")
     Server()

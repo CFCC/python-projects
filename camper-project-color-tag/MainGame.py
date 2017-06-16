@@ -15,8 +15,9 @@ def Game():
             server = input("Connect to: ")
             s.connect((server, 10000))
             connected = True
-        except:
+        except Exception as e:
             print("Could not connect")
+            print(e)
 
     def ServerC(s):
         global Information

@@ -24,7 +24,6 @@ def Server():
             for x in read:
                 newS, addr = x.accept()
                 _thread.start_new_thread(Comunicate, (newS, addr))
-                print(addr)
 
 
 
@@ -39,8 +38,6 @@ def Server():
         Information.append([None, None])
         T = random.randint(0,2)
         All.append([l, T, name, 0])
-
-        print(name)
 
         while (not done) and (not dis):
             try:
