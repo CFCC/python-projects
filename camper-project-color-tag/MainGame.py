@@ -50,7 +50,7 @@ def Game():
                 self.image.fill((255, 255, 0))
 
             elif self.team == 2:
-                self.image.fill(0, 0, 255)
+                self.image.fill((0, 0, 255))
 
 
     class player(pygame.sprite.Sprite):
@@ -160,8 +160,7 @@ def Game():
                     user.editChange_y(1)
                 if event.key == pygame.K_DOWN:
                     user.editChange_y(-1)
-        screen.fill(BLACK)
-
+        screen.fill(WHITE)
         player.update()
         player.draw(screen)
         players.update()
@@ -169,7 +168,7 @@ def Game():
 
         pygame.display.flip()
 
-        clock.tick()
+        clock.tick(60)
     pygame.quit()
 
 # [[x, y, who was hit], [[team, shield],[[name ,l ,x ,y ,team, shield]]]
