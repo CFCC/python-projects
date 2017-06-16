@@ -12,7 +12,7 @@ Vf = True
 while Vf:
     try:
         s.connect(("10.0.0.51", 10001))
-        s.send(Version.encode())
+        s.send(Version)
         data = s.recv(1024)
         if data.decode() != "1":
             game = open("MainServer.py", "w")

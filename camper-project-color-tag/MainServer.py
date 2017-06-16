@@ -8,6 +8,7 @@ def Server():
 
     ServerV = open("ServerVersion.txt", "w")
     ServerV.write(Version)
+<<<<<<< Updated upstream
     ServerV.close()
 
     def Player_Join(s):
@@ -69,3 +70,6 @@ def Server():
 
 # recv = [x, y, who was hit]
 # all [l, t, name, shield]
+=======
+    ServerV.close()
+>>>>>>> Stashed changes
