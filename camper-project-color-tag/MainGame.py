@@ -1,8 +1,16 @@
 def Game():
 
+    name = input("Choose a player name: ")
+    server = input("Connect to: ")
+
+
     import pygame
     import _thread
     import pickle
+    import socket
+
+    s = socket.socket()
+    s.connect((server, 10000))
 
     def ServerC(s):
         global Information
@@ -15,8 +23,9 @@ def Game():
                 dis = True
                 Information = "disconnected"
 
-    Information = [[], []]
+
     global Information
+    Information = [[], []]
 
     Version = "1.0"
 
@@ -25,10 +34,20 @@ def Game():
     VersionF.close()
 
     class player(pygame.sprite.Sprite):
-        def __init__(self, color, width, height, team):
+        def __init__(self, team, width, height):
             super().__init__()
-            self.image=pygame.Surface([width, height])
-            self.image.fill(WHITE)
+            self.image = pygame.Surface([width, height])
+            self.team = team
+
+            if self.team == 0:
+                self.image.fill((255, 0, 0))
+
+            elif self.team == 1:
+                self.image.fill((255, 255, 0))
+
+            elif self.team == 2:
+                self.image.fill(0, 0, 255)
+
             self.change_x = 0
             self.change_y = 0
             self.rect = self.image.get_rect()
@@ -38,21 +57,38 @@ def Game():
             self.rect.x += self.change_x
             self.rect.y += self.change_y
 
+            if self.team == 0:
+                self.image.fill((255, 0, 0))
+
+            elif self.team == 1:
+                self.image.fill((255, 255, 0))
+
+            elif self.team == 2:
+                self.image.fill(0, 0, 255)
+
+
         def editChange_x(self, num):
             self.change_x += num
 
         def editChange_y(self, num):
             self.change_y += num
+
     pygame.init()
     WHITE = (255, 255, 255)
     BLACK = (0, 0, 0)
     size = (1000, 800)
     screen = pygame.display.set_mode(size)
     pygame.display.set_caption("Color Tag")
-    done = False
+
     global done
+    done = False
+
+    _thread.start_new_thread(ServerC, (s))
+
     clock = pygame.time.Clock()
-    user = player(WHITE, 10, 10, 0)
+    user = player(0, 10, 10)
+    players = pygame.sprite.Group()
+    players.add(user)
     while not done:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -76,6 +112,9 @@ def Game():
                 if event.key == pygame.K_DOWN:
                     user.editChange_y(-1)
         screen.fill(BLACK)
+
+        players.update()
+        players.draw(screen)
 
         pygame.display.flip()
 
