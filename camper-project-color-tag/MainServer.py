@@ -3,6 +3,12 @@ def Server():
     import pickle
     import _thread
     import random
+    import socket
+    import select
+
+    s = socket.socket()
+    s.bind((socket.gethostname(), 10000))
+    s.listen(0)
 
     Version = "1.0"
 
@@ -13,9 +19,12 @@ def Server():
     def Player_Join(s):
         global done
         while not done:
-            newS, addr = s.accept()
-            _thread.start_new_thread(Comunicate, (newS, addr))
-            print(addr)
+            read = select.select([s], [], [])[0]
+
+            for x in read:
+                newS, addr = x.accept()
+                _thread.start_new_thread(Comunicate, (newS, addr))
+                print(addr)
 
 
 
@@ -30,7 +39,9 @@ def Server():
         T = random.randint(0,2)
         All.append([l, T, name, 0])
 
-        while (not done) or dis:
+        print(name)
+
+        while (not done) and (not dis):
             try:
                 s.send(pickle._dumps(Information[l][0]))
                 Information[l][1] = pickle.loads(s.recv(1024))
@@ -47,23 +58,36 @@ def Server():
     global done
     done = False
 
-    _thread.start_new_thread(Player_Join, ())
+    _thread.start_new_thread(Player_Join, (s, ))
     while not done:
         for x in All:
-            info = Information[x[0]][1]
-            if info[2] > -1:
-                if info[2] == Information[info[2]][1][2]:
-                    newTeam = x[1]+1
-                    if newTeam > 2:
-                        newTeam = 0
-                    All[info[2]][1] = newTeam
+            try:
+                if Information[x[0]] != [None, None] and Information[x[0]] != ["disconnected", "disconnected"]:
+                    print(Information)
+                    info = Information[x[0]][1]
+                    if info[2] != None:
+                        if info[2] == Information[info[2]][1][2]:
+                            newTeam = x[1]+1
+                            if newTeam > 2:
+                                newTeam = 0
+                            All[info[2]][1] = newTeam
+
+                    sendBack = [[x[1], x[3]], []]
+
+                    for y in All:
+                        if y != x and Information[y[0]] != ["disconnected", "disconnected"]:
+                            sendBack[1].append([y[2], y[0], Information[y[0]][1][0], Information[y[0]][1][1], y[1], y[3]])
+                        Information[x[0]][0] = sendBack
+            except Exception as e:
+                print(e)
+
 
 
 
 # did it colide?
 # if so check what it colided with
 # it it also colided, change teams and activate a shield
-# send it everyone's [team, shield][name ,l ,x ,y ,team, shield]
+# send it everyone's [team, shield],[[name ,l ,x ,y ,team, shield],...]
 
 
 # recv = [x, y, who was hit]

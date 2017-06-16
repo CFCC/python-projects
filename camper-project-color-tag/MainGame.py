@@ -15,7 +15,8 @@ def Game():
     def ServerC(s):
         global Information
         dis = False
-        while not done or not dis:
+        s.send(name.encode())
+        while (not done) and (not dis):
             try:
                 Information[1] = pickle.loads(s.recv(1024))
                 s.send(pickle.dumps(Information[0]))
@@ -25,7 +26,7 @@ def Game():
 
 
     global Information
-    Information = [[], []]
+    Information = [[None, None, None], []]
 
     Version = "1.0"
 
@@ -38,7 +39,6 @@ def Game():
             super().__init__()
             self.image = pygame.Surface([width, height])
             self.team = team
-
             if self.team == 0:
                 self.image.fill((255, 0, 0))
 
@@ -51,11 +51,25 @@ def Game():
             self.change_x = 0
             self.change_y = 0
             self.rect = self.image.get_rect()
-            self.team = team
+
 
         def update(self):
             self.rect.x += self.change_x
             self.rect.y += self.change_y
+            Information[0][0] = self.rect.x
+            Information[0][1] = self.rect.y
+            try:
+                self.team = Information[1][0][0]
+            except:
+                None
+            if self.team == 0:
+                self.image.fill((255, 0, 0))
+
+            elif self.team == 1:
+                self.image.fill((255, 255, 0))
+
+            elif self.team == 2:
+                self.image.fill(0, 0, 255)
 
             if self.team == 0:
                 self.image.fill((255, 0, 0))
@@ -83,7 +97,7 @@ def Game():
     global done
     done = False
 
-    _thread.start_new_thread(ServerC, (s))
+    _thread.start_new_thread(ServerC, (s, ))
 
     clock = pygame.time.Clock()
     user = player(0, 10, 10)
