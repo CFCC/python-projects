@@ -59,6 +59,9 @@ def Server():
     _thread.start_new_thread(Player_Join, (s, ))
     while not done:
         for x in All:
+            if x[3] > 0:
+                x[3] -=1
+
             # Recives x,y,and team from all connected clients. Sends all clients all other clients' x,y,team, and shield
             try:
                 if Information[x[0]] != [None, None] and Information[x[0]] != ["disconnected", "disconnected"]:
@@ -66,11 +69,12 @@ def Server():
                     info = Information[x[0]][1]
                     if info[2][0] != None:
                         if Information[info[2][0]][1][2][1] != None:
-                            if info[2][0] == Information[info[2]][1][2][1]:
-                                newTeam = x[1]+1
-                                if newTeam > 2:
-                                    newTeam = 0
+                            print(x[0], Information[info[2][0]][1][2][1])
+                            if x[0] == Information[info[2][0]][1][2][1]:
+                                print("new team")
+                                newTeam = x[1]
                                 All[info[2][0]][1] = newTeam
+                                All[info[2][0]][3] = 300
 
                     sendBack = [[x[1], x[3]], []]
 
