@@ -1,7 +1,6 @@
 def Game():
 
     name = input("Choose a player name: ")
-    server = input("Connect to: ")
 
 
     import pygame
@@ -10,7 +9,14 @@ def Game():
     import socket
 
     s = socket.socket()
-    s.connect((server, 10000))
+    connected = False
+    while not connected:
+        try:
+            server = input("Connect to: ")
+            s.connect((server, 10000))
+            connected = True
+        except:
+            print("Could not connect")
 
     def ServerC(s):
         global Information
@@ -41,6 +47,7 @@ def Game():
             self.shield = 0
             self.name = ""
             self.rect = self.image.get_rect()
+            self.id = 0
 
         def update(self):
             if self.team == 0:
@@ -50,7 +57,7 @@ def Game():
                 self.image.fill((255, 255, 0))
 
             elif self.team == 2:
-                self.image.fill(0, 0, 255)
+                self.image.fill((0, 0, 255))
 
 
     class player(pygame.sprite.Sprite):
@@ -78,6 +85,14 @@ def Game():
             self.rect.y += self.change_y
             Information[0][0] = self.rect.x
             Information[0][1] = self.rect.y
+
+            collideList = pygame.sprite.spritecollide(self, players)
+            for x in collideList:
+                if x.shield == 0 and self.shield == 0:
+                    if x.team < self.team or (x.team == 3 and self.team == 1):
+                        Information[0][2] = x.id
+                        print("collided with", x.name)
+
             try:
                 self.team = Information[1][0][0]
                 self.shield = Information[1][0][1]
@@ -137,6 +152,9 @@ def Game():
             playersL[z].rect.x = Information[1][1][z][2]
             playersL[z].rect.y = Information[1][1][z][3]
             playersL[z].team = Information[1][1][z][4]
+            playersL[z].shield = Information[1][1][z][5]
+            playersL[z].id = Information[1][1][z][1]
+            playersL[z].name = Information[1][1][z][0]
 
 
         for event in pygame.event.get():
@@ -169,7 +187,7 @@ def Game():
 
         pygame.display.flip()
 
-        clock.tick()
+        clock.tick(60)
     pygame.quit()
 
 # [[x, y, who was hit], [[team, shield],[[name ,l ,x ,y ,team, shield]]]
