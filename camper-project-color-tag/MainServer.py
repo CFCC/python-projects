@@ -1,17 +1,17 @@
 def Server():
-    #Function taken by "Server" Keeps track of all players' x,y,and team. Send other players' data to each client
+    # Function taken by "Server" Keeps track of all players' x,y,and team. Send other players' data to each client
     import pickle
     import _thread
     import random
     import socket
     import select
-    #Prepare to make a connection with a client
+    # Prepare to make a connection with a client
     s = socket.socket()
     s.bind((socket.gethostname(), 10000))
     s.listen(0)
 
     Version = "1.0"
-    #Version is written to ServerVersion.txt. When outdated, "Server" Updates "MainServer"
+    # Version is written to ServerVersion.txt. When outdated, "Server" Updates "MainServer"
     ServerV = open("ServerVersion.txt", "w")
     ServerV.write(Version)
     ServerV.close()
@@ -30,7 +30,7 @@ def Server():
 
 
     def Comunicate(s, addr):
-        #Adds new players to Information and removes them when they disconnect
+        # Adds new players to Information and removes them when they disconnect
         global Information
         global done
         dis = False
@@ -62,7 +62,7 @@ def Server():
     _thread.start_new_thread(Player_Join, (s, ))
     while not done:
         for x in All:
-            #Recives x,y,and team from all connected clients. Sends all clients all other clients' x,y,team, and shield
+            # Recives x,y,and team from all connected clients. Sends all clients all other clients' x,y,team, and shield
             try:
                 if Information[x[0]] != [None, None] and Information[x[0]] != ["disconnected", "disconnected"]:
                     print(Information)
