@@ -1,27 +1,42 @@
 import socket
 import pickle
 
-VersionF = open("ServerVersion.txt")
-Version = pickle.dumps([VersionF.read(), "Server"])
-print(VersionF.read())
-VersionF.close()
+
+
+try:
+    VersionF = open("ServerVersion.txt")
+    Version = pickle.dumps([VersionF.read(), "Server"])
+    VersionF.close()
+except:
+    open("ServerVersion.txt", "w").close()
+
 s = socket.socket()
 
 Vf = True
+
+update = "Y"
 
 while Vf:
     try:
         s.connect(("10.0.0.51", 10001))
         s.send(Version)
-        data = s.recv(1024)
+        data = s.recv(7000)
         if data.decode() != "1":
-            game = open("MainServer.py", "w")
-            game.write(data.decode())
-            game.close()
-        Vf = False
+            waiting = True
+            update = input("Outdated Client. Permission to update? (Y/N): ").upper()
+            while waiting:
+                if update == "Y":
+                    game = open("MainServer.py", "w")
+                    game.write(data.decode())
+                    game.close()
+                    waiting = False
+                elif update == "N":
+                    waiting = False
+                else:
+                    update = input("That was not an option. Please choose a (Y/N): ")
     except:
         Vf = True
 
 from MainServer import *
-
-Server()
+if update == "Y":
+    Server()
