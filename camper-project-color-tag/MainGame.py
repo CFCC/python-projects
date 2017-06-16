@@ -69,16 +69,7 @@ def Game():
                 self.image.fill((255, 255, 0))
 
             elif self.team == 2:
-                self.image.fill(0, 0, 255)
-
-            if self.team == 0:
-                self.image.fill((255, 0, 0))
-
-            elif self.team == 1:
-                self.image.fill((255, 255, 0))
-
-            elif self.team == 2:
-                self.image.fill(0, 0, 255)
+                self.image.fill((0, 0, 255))
 
 
         def editChange_x(self, num):
