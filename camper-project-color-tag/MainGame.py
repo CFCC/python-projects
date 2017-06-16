@@ -26,13 +26,14 @@ def Game():
     VersionF.close()
 
     class player(pygame.sprite.Sprite):
-        def __init__(self, color, width, height):
+        def __init__(self, color, width, height, team):
             super.__init__()
             self.image=pygame.Surface([width, height])
             self.image.fill(WHITE)
             self.change_x = 0
             self.change_y = 0
             self.rect = self.image.getRect()
+            self.team = team
 
         def update(self):
             self.rect.x += self.change_x
@@ -52,7 +53,7 @@ def Game():
     done = False
     global done
     clock = pygame.time.Clock()
-    user = player(WHITE, 10, 10)
+    user = player(WHITE, 10, 10, 0)
     while not done:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -72,9 +73,9 @@ def Game():
                 if event.key == pygame.K_RIGHT:
                     user.editChange_x(-1)
                 if event.key == pygame.K_UP:
-                    change_y += 1
+                    user.editChange_y(1)
                 if event.key == pygame.K_DOWN:
-                    change_y -= 1
+                    user.editChange_y(-1)
         screen.fill(BLACK)
 
         pygame.display.flip()
