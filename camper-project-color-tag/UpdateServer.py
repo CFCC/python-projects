@@ -17,12 +17,14 @@ while not done:
     read = select.select(Sockets, [], [])[0]
     for sock in read:
         if sock == s:
+            #Appends new clients to Sockets
             newS, addr = s.accept()
             Sockets.append(newS)
             print(addr)
 
         else:
             try:
+                #Checks Version and send 1 for correct version and anything else for wrong version
                 data = pickle.loads(sock.recv(1024))
                 print(data)
                 if data[0] == CVersion:
@@ -46,6 +48,7 @@ while not done:
                 Sockets.remove(sock)
 
             except:
+                #When connection is lost, an error will be thrown in the try block
                 sock.close()
                 Sockets.remove(sock)
 
