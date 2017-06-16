@@ -33,12 +33,32 @@ def Game():
     VersionF = open("ClientVersion.txt", "w")
     VersionF.write(Version)
     VersionF.close()
+    class Oplayer(pygame.sprite.Sprite):
+        def __init__(self, width, height):
+            super().__init__()
+            self.image = pygame.Surface([width, height])
+            self.team = 0
+            self.shield = 0
+            self.name = ""
+            self.rect = self.image.get_rect()
+
+        def update(self):
+            if self.team == 0:
+                self.image.fill((255, 0, 0))
+
+            elif self.team == 1:
+                self.image.fill((255, 255, 0))
+
+            elif self.team == 2:
+                self.image.fill(0, 0, 255)
+
 
     class player(pygame.sprite.Sprite):
         def __init__(self, team, width, height):
             super().__init__()
             self.image = pygame.Surface([width, height])
             self.team = team
+            self.shield = 0
             if self.team == 0:
                 self.image.fill((255, 0, 0))
 
@@ -60,6 +80,7 @@ def Game():
             Information[0][1] = self.rect.y
             try:
                 self.team = Information[1][0][0]
+                self.shield = Information[1][0][1]
             except:
                 None
             if self.team == 0:
@@ -92,9 +113,32 @@ def Game():
 
     clock = pygame.time.Clock()
     user = player(0, 10, 10)
+    player = pygame.sprite.Group()
+    player.add(user)
     players = pygame.sprite.Group()
-    players.add(user)
+    playersL = []
     while not done:
+        try:
+            lenI = len(Information[1][1])
+            if lenI > len(players):
+                for x in range(lenI - len(players)):
+                    p = Oplayer(10, 10)
+                    players.add(p)
+                    playersL.append(p)
+            if lenI < len(players):
+                for x in range(len(players) - lenI):
+                    players.remove(playersL[0])
+                    playersL.remove(playersL[0])
+
+        except Exception as e:
+            print(e)
+
+        for z in range(len(playersL)):
+            playersL[z].rect.x = Information[1][1][z][2]
+            playersL[z].rect.y = Information[1][1][z][3]
+            playersL[z].team = Information[1][1][z][4]
+
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 done = True
@@ -118,6 +162,8 @@ def Game():
                     user.editChange_y(-1)
         screen.fill(BLACK)
 
+        player.update()
+        player.draw(screen)
         players.update()
         players.draw(screen)
 
@@ -126,4 +172,4 @@ def Game():
         clock.tick()
     pygame.quit()
 
-# [[x, y, who was hit], [[team, shield],[name ,l ,x ,y ,team, shield]]]
+# [[x, y, who was hit], [[team, shield],[[name ,l ,x ,y ,team, shield]]]
