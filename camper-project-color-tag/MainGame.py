@@ -188,5 +188,3 @@ def Game():
 
         clock.tick(60)
     pygame.quit()
-
-# [[x, y, who was hit], [[team, shield],[[name ,l ,x ,y ,team, shield]]]
