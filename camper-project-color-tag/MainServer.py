@@ -65,7 +65,7 @@ def Server():
                     print(Information)
                     info = Information[x[0]][1]
                     if info[2][0] != None:
-                        if Information[info[2]][1][2][1] != None:
+                        if Information[info[2][0]][1][2][1] != None:
                             if info[2][0] == Information[info[2]][1][2][1]:
                                 newTeam = x[1]+1
                                 if newTeam > 2:
