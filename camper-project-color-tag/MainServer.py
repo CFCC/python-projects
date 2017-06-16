@@ -8,7 +8,6 @@ def Server():
 
     ServerV = open("ServerVersion.txt", "w")
     ServerV.write(Version)
-    ServerV.close()
 
     def Player_Join(s):
         global done

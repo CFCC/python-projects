@@ -2,10 +2,9 @@ import socket
 import pickle
 
 VersionF = open("ServerVersion.txt")
-Version = VersionF.read()
-Version = pickle.dumps([Version, "Server"])
+Version = pickle.dumps([VersionF.read(), "Server"])
+print(VersionF.read())
 VersionF.close()
-
 s = socket.socket()
 
 Vf = True
