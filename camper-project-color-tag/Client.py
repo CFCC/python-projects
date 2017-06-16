@@ -11,6 +11,12 @@ try:
 except:
     open("ClientVersion.txt", "w").close()
 
+VersionF = open("ClientVersion.txt")
+Version = VersionF.read()
+Version = pickle.dumps([Version, "Client"])
+VersionF.close()
+
+
 s = socket.socket()
 
 Vf = True
