@@ -47,7 +47,6 @@ def Server():
     global done
     done = False
 
-
     _thread.start_new_thread(Player_Join, ())
     while not done:
         for x in All:
