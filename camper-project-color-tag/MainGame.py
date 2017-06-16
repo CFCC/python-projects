@@ -178,8 +178,7 @@ def Game():
                     user.editChange_y(1)
                 if event.key == pygame.K_DOWN:
                     user.editChange_y(-1)
-        screen.fill(BLACK)
-
+        screen.fill(WHITE)
         player.update()
         player.draw(screen)
         players.update()
