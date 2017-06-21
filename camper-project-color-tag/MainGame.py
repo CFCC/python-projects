@@ -1,12 +1,13 @@
 def Game():
 
     name = input("Choose a player name: ")
-
+    boarder = [1050, 850]
 
     import pygame
     import _thread
     import pickle
     import socket
+    import math
 
     s = socket.socket()
     connected = False
@@ -21,12 +22,32 @@ def Game():
 
     def ServerC(s):
         global Information
+        global done
         dis = False
+        start = False
         s.send(name.encode())
+
         while (not done) and (not dis):
             try:
                 Information[1] = pickle.loads(s.recv(1024))
                 s.send(pickle.dumps(Information[0]))
+                if not start:
+                    try:
+                        if Information[1][0][0] == 0:
+                            user.rect.x = 0
+                            user.rect.y = 0
+                        elif Information[1][0][0] == 1:
+                            user.rect.bottom = boarder[1]
+                            user.rect.x = (boarder[0] / 2) - (user.width / 2)
+                        elif Information[1][0][0] == 2:
+                            user.rect.right = boarder[0]
+                            user.rect.y = (boarder[1] / 2) - (user.height / 2)
+
+                        start = True
+                    except:
+                        None
+
+
             except:
                 dis = True
                 Information = "disconnected"
@@ -43,7 +64,9 @@ def Game():
     class Oplayer(pygame.sprite.Sprite):
         def __init__(self, width, height):
             super().__init__()
-            self.image = pygame.Surface([width, height])
+            self.width = width
+            self.height = height
+            self.image = pygame.Surface([self.width, self.height])
             self.team = 0
             self.shield = 0
             self.name = ""
@@ -64,7 +87,9 @@ def Game():
     class player(pygame.sprite.Sprite):
         def __init__(self, team, width, height):
             super().__init__()
-            self.image = pygame.Surface([width, height])
+            self.width = width
+            self.height = height
+            self.image = pygame.Surface([self.width, self.height])
             self.team = team
             self.shield = 0
             if self.team == 0:
@@ -84,8 +109,18 @@ def Game():
         def update(self):
             self.rect.x += self.change_x
             self.rect.y += self.change_y
-            Information[0][0] = self.rect.x
-            Information[0][1] = self.rect.y
+
+            if self.rect.left < 0:
+                self.rect.left = 0
+            if self.rect.top < 0:
+                self.rect.top = 0
+            if self.rect.right > size[0]:
+                self.rect.right = size[0]
+            if self.rect.bottom > size[1]:
+                self.rect.bottom = size[1]
+
+            Information[0][0] = self.rect.x - worldShift[0]
+            Information[0][1] = self.rect.y - worldShift[1]
 
             collideList = pygame.sprite.spritecollide(self, players, False)
             Information[0][2] = [None, None]
@@ -122,6 +157,7 @@ def Game():
     WHITE = (255, 255, 255)
     BLACK = (0, 0, 0)
     size = (1000, 800)
+    midSize = [math.floor(size[0] / 2), math.floor(size[1] / 2)]
     screen = pygame.display.set_mode(size)
     pygame.display.set_caption("Color Tag")
 
@@ -136,6 +172,9 @@ def Game():
     player.add(user)
     players = pygame.sprite.Group()
     playersL = []
+
+    worldShift = [0, 0]
+
     while not done:
         try:
             lenI = len(Information[1][1])
@@ -153,8 +192,8 @@ def Game():
             None
 
         for z in range(len(playersL)):
-            playersL[z].rect.x = Information[1][1][z][2]
-            playersL[z].rect.y = Information[1][1][z][3]
+            playersL[z].rect.x = Information[1][1][z][2] + worldShift[0]
+            playersL[z].rect.y = Information[1][1][z][3] + worldShift[1]
             playersL[z].team = Information[1][1][z][4]
             playersL[z].shield = Information[1][1][z][5]
             playersL[z].id = Information[1][1][z][1]
@@ -182,7 +221,56 @@ def Game():
                     user.editChange_y(1)
                 if event.key == pygame.K_DOWN:
                     user.editChange_y(-1)
-        screen.fill(WHITE)
+        screen.fill(BLACK)
+
+        temp = True
+        center = [math.floor(user.rect.x + (user.width / 2)), math.floor(user.rect.y + (user.height / 2))]
+        if center[0] < midSize[0] and worldShift[0] < 0:
+            while temp:
+                if center[0] < midSize[0]:
+                    worldShift[0] += 1
+                    user.rect.x += 1
+                center = [math.floor(user.rect.x + (user.width / 2)), math.floor(user.rect.y + (user.height / 2))]
+                if center[0] == midSize[0] or worldShift[0] == 0:
+                    temp = False
+
+        temp = True
+        center = [math.floor(user.rect.x + (user.width / 2)),math.floor(user.rect.y + (user.height / 2))]
+
+        if center[0] > midSize[0] and worldShift[0] > size[0] - boarder[0]:
+            while temp:
+                if center[0] > midSize[0]:
+                    worldShift[0] -= 1
+                    user.rect.x -= 1
+                center = [math.floor(user.rect.x + (user.width / 2)), math.floor(user.rect.y + (user.height / 2))]
+                if center[0] == midSize[0] or worldShift[0] == size[0] - boarder[0]:
+                    temp = False
+
+        temp = True
+        center = [math.floor(user.rect.x + (user.width / 2)), math.floor(user.rect.y + (user.height / 2))]
+
+        if center[1] < midSize[1] and worldShift[1] < 0:
+            while temp:
+                if center[1] < midSize[1]:
+                    worldShift[1] += 1
+                    user.rect.y += 1
+                center = [math.floor(user.rect.x + (user.width / 2)), math.floor(user.rect.y + (user.height / 2))]
+                if center[1] == midSize[1] or worldShift[1] == 0:
+                    temp = False
+
+        temp = True
+        center = [math.floor(user.rect.x + (user.width / 2)), math.floor(user.rect.y + (user.height / 2))]
+
+        if center[1] > midSize[1] and worldShift[1] > size[1] - boarder[1]:
+            while temp:
+                if center[1] > midSize[1]:
+                    worldShift[1] -= 1
+                    user.rect.y -= 1
+                center = [math.floor(user.rect.x + (user.width / 2)), math.floor(user.rect.y + (user.height / 2))]
+                if center[1] == midSize[1] or worldShift[1] == size[1] - boarder[1]:
+                    temp = False
+
+        print(worldShift)
         player.update()
         player.draw(screen)
         players.update()

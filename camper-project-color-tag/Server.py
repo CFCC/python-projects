@@ -18,7 +18,7 @@ update = "Y"
 
 while Vf:
     try:
-        s.connect(("10.0.0.51", 10001))
+        s.connect(("192.168.0.13", 10001))
         s.send(Version)
         data = s.recv(7000)
         if data.decode() != "1":
