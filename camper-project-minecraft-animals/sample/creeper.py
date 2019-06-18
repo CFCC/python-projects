@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # Load the required modules and functions
 from turtle import *
@@ -73,7 +73,7 @@ def main():
 		reset_row()
 
 	# Wait to finish
-	raw_input()
+	input()
 
 # Run main
 if __name__ == "__main__":
