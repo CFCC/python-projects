@@ -1,0 +1,5 @@
+# Add this to the "for event in pygame.event.get():" loop.
+# This code prints x and y cords on click.
+if event.type == pygame.MOUSEBUTTONDOWN:
+    position = pygame.mouse.get_pos()
+    print(position)
